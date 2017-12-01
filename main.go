@@ -9,24 +9,22 @@ func main() {
 }
 
 func advent(test string) (int, error) {
-	first := 0
-	prev := 0
+	fmt.Printf("%s\n", test)
+	offset := len(test) / 2
+	//first := 0
+	opposite := 0
 	total := 0
 	for i, rune := range test {
 		intRune := int(rune - '0')
-		fmt.Printf("%d: %d %d\n", i, intRune, total)
-		if i == 0 {
-			first = intRune
-			prev = intRune
-			continue
+		circle := i + offset
+		if i+offset >= len(test) {
+			break
 		}
-		if prev == intRune {
-			total += intRune
+		opposite = int(test[circle] - '0')
+		if opposite == intRune {
+			total += 2 * intRune
 		}
-		prev = intRune
-	}
-	if prev == first {
-		total += first
+		fmt.Printf("%d: %d %d\n", intRune, opposite, total)
 	}
 
 	return total, nil

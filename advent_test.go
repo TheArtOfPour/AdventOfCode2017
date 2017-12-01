@@ -8,27 +8,17 @@ import (
 )
 
 func TestAdvent(t *testing.T) {
-	input := "1122"
+	input := "1212"
 	out, err := advent(input)
 	if err != nil {
 		t.Errorf("Failed %v", err)
 	}
-	expected := 3
+	expected := 6
 	if !cmp.Equal(out, expected) {
 		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
 	}
 
-	input = "1111"
-	out, err = advent(input)
-	if err != nil {
-		t.Errorf("Failed %v", err)
-	}
-	expected = 4
-	if !cmp.Equal(out, expected) {
-		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
-	}
-
-	input = "1234"
+	input = "1221"
 	out, err = advent(input)
 	if err != nil {
 		t.Errorf("Failed %v", err)
@@ -38,12 +28,32 @@ func TestAdvent(t *testing.T) {
 		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
 	}
 
-	input = "91212129"
+	input = "123425"
 	out, err = advent(input)
 	if err != nil {
 		t.Errorf("Failed %v", err)
 	}
-	expected = 9
+	expected = 4
+	if !cmp.Equal(out, expected) {
+		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	}
+
+	input = "123123"
+	out, err = advent(input)
+	if err != nil {
+		t.Errorf("Failed %v", err)
+	}
+	expected = 12
+	if !cmp.Equal(out, expected) {
+		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	}
+
+	input = "12131415"
+	out, err = advent(input)
+	if err != nil {
+		t.Errorf("Failed %v", err)
+	}
+	expected = 4
 	if !cmp.Equal(out, expected) {
 		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
 	}
