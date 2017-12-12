@@ -194,5 +194,25 @@ func TestDay11(t *testing.T) {
 	}
 }
 
+func TestDay12(t *testing.T) {
+	input := `0 <-> 2
+1 <-> 1
+2 <-> 0, 3, 4
+3 <-> 2, 4
+4 <-> 2, 3, 6
+5 <-> 6
+6 <-> 4, 5`
+	iout := advent12A(input)
+	iexpected := 6
+	if !cmp.Equal(iout, iexpected) {
+		t.Errorf("Didn't match %s", cmp.Diff(iout, iexpected))
+	}
+	iout = advent12B(input)
+	iexpected = 2
+	if !cmp.Equal(iout, iexpected) {
+		t.Errorf("Didn't match %s", cmp.Diff(iout, iexpected))
+	}
+}
+
 func TestAdvent(t *testing.T) {
 }
