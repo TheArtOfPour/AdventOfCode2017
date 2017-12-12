@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"crypto/sha1"
 	"fmt"
+	"io/ioutil"
 	"os"
 	"sort"
 	"strconv"
@@ -31,9 +32,10 @@ func SortString(s string) string {
 }
 
 func main() {
-	input := `88,88,211,106,141,1,78,254,2,111,77,255,90,0,54,205`
-	out := advent10B(input)
-	fmt.Printf("Result %s\n", out)
+	fileContents, _ := ioutil.ReadFile("./inputs/day11.txt")
+	input := string(fileContents)
+	out := advent11B(input)
+	fmt.Printf("Result %d\n", out)
 }
 
 func advent1A(test string) (int, error) {

@@ -167,5 +167,32 @@ func TestDay10(t *testing.T) {
 	}
 }
 
+func TestDay11(t *testing.T) {
+	input := "ne,ne,ne"
+	iout := advent11A(input)
+	iexpected := 3
+	if !cmp.Equal(iout, iexpected) {
+		t.Errorf("Didn't match %s", cmp.Diff(iout, iexpected))
+	}
+	input = "ne,ne,sw,sw"
+	iout = advent11A(input)
+	iexpected = 0
+	if !cmp.Equal(iout, iexpected) {
+		t.Errorf("Didn't match %s", cmp.Diff(iout, iexpected))
+	}
+	input = "ne,ne,s,s"
+	iout = advent11A(input)
+	iexpected = 2
+	if !cmp.Equal(iout, iexpected) {
+		t.Errorf("Didn't match %s", cmp.Diff(iout, iexpected))
+	}
+	input = "se,sw,se,sw,sw"
+	iout = advent11A(input)
+	iexpected = 3
+	if !cmp.Equal(iout, iexpected) {
+		t.Errorf("Didn't match %s", cmp.Diff(iout, iexpected))
+	}
+}
+
 func TestAdvent(t *testing.T) {
 }
