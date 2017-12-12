@@ -2557,5 +2557,62 @@ h inc -526 if d != -2461`
 	fmt.Printf("Result 8B %d\n", out)
 }
 
+func TestDay9(t *testing.T) {
+	input := "{}"
+	out := advent9A(input)
+	expected := 1
+	if !cmp.Equal(out, expected) {
+		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	}
+	input = "{{{}}}"
+	out = advent9A(input)
+	expected = 6
+	if !cmp.Equal(out, expected) {
+		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	}
+	input = "{{},{}}"
+	out = advent9A(input)
+	expected = 5
+	if !cmp.Equal(out, expected) {
+		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	}
+	input = "{{{},{},{{}}}}"
+	out = advent9A(input)
+	expected = 16
+	if !cmp.Equal(out, expected) {
+		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	}
+	input = "{<a>,<a>,<a>,<a>}"
+	out = advent9A(input)
+	expected = 1
+	if !cmp.Equal(out, expected) {
+		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	}
+	input = "{{<ab>},{<ab>},{<ab>},{<ab>}}"
+	out = advent9A(input)
+	expected = 9
+	if !cmp.Equal(out, expected) {
+		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	}
+	input = "{{<!!>},{<!!>},{<!!>},{<!!>}}"
+	out = advent9A(input)
+	expected = 9
+	if !cmp.Equal(out, expected) {
+		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	}
+	input = "{{<a!>},{<a!>},{<a!>},{<ab>}}"
+	out = advent9A(input)
+	expected = 3
+	if !cmp.Equal(out, expected) {
+		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	}
+
+	// input = ""
+	// out = advent9A(input)
+	// fmt.Printf("Result 9A %d\n", out)
+	// out = advent9B(input)
+	// fmt.Printf("Result 9B %d\n", out)
+}
+
 func TestAdvent(t *testing.T) {
 }
