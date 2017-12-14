@@ -75,11 +75,11 @@ func advent10B(test string) string {
 	inputs = append(inputs, 73)
 	inputs = append(inputs, 47)
 	inputs = append(inputs, 23)
-	fmt.Printf("%v\n", inputs)
+	//fmt.Printf("%v\n", inputs)
 	skip := 0
 	i := 0
 	for j := 0; j < 64; j++ {
-		fmt.Printf("loop %d\n", j)
+		//fmt.Printf("loop %d\n", j)
 		for _, input := range inputs {
 			//fmt.Printf("s:%d, i:%d, input:%d\n", skip, i, input)
 			//fmt.Printf("[%d]\n", list[i])
@@ -97,10 +97,10 @@ func advent10B(test string) string {
 		for l := (k * 16) + 1; l < (k*16)+16; l++ {
 			hashbyte = hashbyte ^ list[l]
 		}
-		fmt.Printf("%v\n", hashbyte)
+		//fmt.Printf("%v\n", hashbyte)
 		h := fmt.Sprintf("%02x", hashbyte)
 		hash = append(hash, h)
 	}
-	fmt.Printf("%v\n", hash)
+	//fmt.Printf("%v\n", hash)
 	return strings.Join(hash, "")
 }
