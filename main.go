@@ -28,8 +28,8 @@ func SortString(s string) string {
 }
 
 func main() {
-	fileContents, _ := ioutil.ReadFile("./inputs/day16.txt")
+	fileContents, _ := ioutil.ReadFile("./inputs/day14.txt")
 	input := string(fileContents)
-	out := advent16B(input, "abcdefghijklmnop")
+	out := advent14B(input)
 	fmt.Printf("Result %v\n", out)
 }
