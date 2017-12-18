@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"sort"
+	"strconv"
 )
 
 type sortRunes []rune
@@ -28,8 +29,9 @@ func SortString(s string) string {
 }
 
 func main() {
-	fileContents, _ := ioutil.ReadFile("./inputs/day14.txt")
+	fileContents, _ := ioutil.ReadFile("./inputs/day17.txt")
 	input := string(fileContents)
-	out := advent14B(input)
+	numeric, _ := strconv.Atoi(input)
+	out := advent17B(numeric)
 	fmt.Printf("Result %v\n", out)
 }

@@ -244,6 +244,7 @@ func TestDay14(t *testing.T) {
 		t.Errorf("Didn't match %s", cmp.Diff(iout, iexpected))
 	}
 }
+
 func TestDay15(t *testing.T) {
 	input := `65,8921`
 	iout := advent15A(input)
@@ -257,6 +258,7 @@ func TestDay15(t *testing.T) {
 		t.Errorf("Didn't match %s", cmp.Diff(iout, iexpected))
 	}
 }
+
 func TestDay16(t *testing.T) {
 	input := `s1,x3/4,pe/b`
 	iout := advent16A(input, "abcde")
@@ -266,6 +268,15 @@ func TestDay16(t *testing.T) {
 	}
 	iout = advent16B(input, "abcde")
 	iexpected = `abcde`
+	if !cmp.Equal(iout, iexpected) {
+		t.Errorf("Didn't match %s", cmp.Diff(iout, iexpected))
+	}
+}
+
+func TestDay17(t *testing.T) {
+	input := 3
+	iout := advent17A(input)
+	iexpected := 638
 	if !cmp.Equal(iout, iexpected) {
 		t.Errorf("Didn't match %s", cmp.Diff(iout, iexpected))
 	}
