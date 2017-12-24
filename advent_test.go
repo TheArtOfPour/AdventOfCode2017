@@ -282,5 +282,23 @@ func TestDay17(t *testing.T) {
 	}
 }
 
+func TestDay18(t *testing.T) {
+	input := `set a 1
+add a 2
+mul a a
+mod a 5
+snd a
+set a 0
+rcv a
+jgz a -1
+set a 1
+jgz a -2`
+	iout := advent18A(input)
+	iexpected := 4
+	if !cmp.Equal(iout, iexpected) {
+		t.Errorf("Didn't match %s", cmp.Diff(iout, iexpected))
+	}
+}
+
 func TestAdvent(t *testing.T) {
 }
