@@ -299,6 +299,24 @@ jgz a -2`
 		t.Errorf("Didn't match %s", cmp.Diff(iout, iexpected))
 	}
 }
+func TestDay19(t *testing.T) {
+	input := `    |          
+    |  +--+    
+    A  |  C    
+F---|----E|--+ 
+    |  |  |  D 
+    +B-+  +--+`
+	out := advent19A(input)
+	expected := "ABCDEF"
+	if !cmp.Equal(out, expected) {
+		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	}
+	iout := advent19B(input)
+	iexpected := 38
+	if !cmp.Equal(iout, iexpected) {
+		t.Errorf("Didn't match %s", cmp.Diff(iout, iexpected))
+	}
+}
 
 func TestAdvent(t *testing.T) {
 }
