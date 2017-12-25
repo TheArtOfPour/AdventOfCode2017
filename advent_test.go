@@ -318,5 +318,20 @@ F---|----E|--+
 	}
 }
 
+func TestDay20(t *testing.T) {
+	input := `p=< 3,0,0>, v=< 2,0,0>, a=<-1,0,0>
+p=< 4,0,0>, v=< 0,0,0>, a=<-2,0,0>`
+	out := advent20A(input)
+	expected := 0
+	if !cmp.Equal(out, expected) {
+		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	}
+	// iout := advent19B(input)
+	// iexpected := 38
+	// if !cmp.Equal(iout, iexpected) {
+	// 	t.Errorf("Didn't match %s", cmp.Diff(iout, iexpected))
+	// }
+}
+
 func TestAdvent(t *testing.T) {
 }

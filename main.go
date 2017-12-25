@@ -28,9 +28,9 @@ func SortString(s string) string {
 }
 
 func main() {
-	fileContents, _ := ioutil.ReadFile("./inputs/day19.txt")
+	fileContents, _ := ioutil.ReadFile("./inputs/day20.txt")
 	input := string(fileContents)
 	//numeric, _ := strconv.Atoi(input)
-	out := advent19B(input)
+	out := advent20B(input)
 	fmt.Printf("Result %v\n", out)
 }
