@@ -326,11 +326,31 @@ p=< 4,0,0>, v=< 0,0,0>, a=<-2,0,0>`
 	if !cmp.Equal(out, expected) {
 		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
 	}
-	// iout := advent19B(input)
-	// iexpected := 38
-	// if !cmp.Equal(iout, iexpected) {
-	// 	t.Errorf("Didn't match %s", cmp.Diff(iout, iexpected))
+}
+
+func TestDay21(t *testing.T) {
+	input := `../.# => ##./#../...
+.#./..#/### => #..#/..../..../#..#`
+	out := advent21A(input)
+	expected := 12
+	if !cmp.Equal(out, expected) {
+		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	}
+}
+func TestDay22(t *testing.T) {
+	input := `..#
+#..
+...`
+	// out := advent22A(input)
+	// expected := 5587
+	// if !cmp.Equal(out, expected) {
+	// 	t.Errorf("Didn't match %s", cmp.Diff(out, expected))
 	// }
+	out := advent22B(input)
+	expected := 2511944
+	if !cmp.Equal(out, expected) {
+		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	}
 }
 
 func TestAdvent(t *testing.T) {

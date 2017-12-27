@@ -113,7 +113,6 @@ func advent20B(test string) int {
 			moveParticle(&particle)
 			particles[p] = particle
 		}
-		//fmt.Printf("%v", particles)
 	}
 
 	return len(particles)
