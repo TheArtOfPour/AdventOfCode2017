@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-	"io/ioutil"
 	"sort"
 )
 
@@ -28,9 +26,10 @@ func SortString(s string) string {
 }
 
 func main() {
-	fileContents, _ := ioutil.ReadFile("./inputs/day22.txt")
-	input := string(fileContents)
-	//numeric, _ := strconv.Atoi(input)
-	out := advent22B(input)
-	fmt.Printf("Result %v\n", out)
+	// fileContents, _ := ioutil.ReadFile("./inputs/day22.txt")
+	// input := string(fileContents)
+	// //numeric, _ := strconv.Atoi(input)
+	// out := advent22B(input)
+	// fmt.Printf("Result %v\n", out)
+	justforfun22()
 }
