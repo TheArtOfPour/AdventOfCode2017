@@ -353,5 +353,26 @@ func TestDay22(t *testing.T) {
 	}
 }
 
+func TestDay24(t *testing.T) {
+	input := `0/2
+2/2
+2/3
+3/4
+3/5
+0/1
+10/1
+9/10`
+	out := advent24A(input)
+	expected := 31
+	if !cmp.Equal(out, expected) {
+		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	}
+	out = advent24B(input)
+	expected = 19
+	if !cmp.Equal(out, expected) {
+		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	}
+}
+
 func TestAdvent(t *testing.T) {
 }

@@ -288,9 +288,9 @@ func advent22B(test string) int {
 	worm1 := worm{len(nodes) / 2, len(nodes) / 4, 'u'}
 	worm2 := worm{len(nodes) / 4, len(nodes) / 2, 'd'}
 	worm3 := worm{len(nodes) - 20, len(nodes[0]) - 20, 'u'}
-	worm4 := worm{len(nodes) - 1, len(nodes[0]) - 1, 'd'}
-	worm5 := worm{len(nodes) - 1, len(nodes[0]) - 1, 'd'}
-	worm6 := worm{len(nodes) - 40, len(nodes[0]) - 1, 'r'}
+	worm4 := worm{len(nodes) / 2, len(nodes[0]) / 2, 'l'}
+	worm5 := worm{len(nodes) - 10, len(nodes[0]) - 10, 'u'}
+	worm6 := worm{len(nodes) - 50, len(nodes[0]) - 50, 'r'}
 	for i := 0; i < iterations; i++ {
 		moveWorm(&worm1, nodes)
 		moveWorm(&worm2, nodes)
