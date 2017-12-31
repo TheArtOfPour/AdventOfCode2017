@@ -293,8 +293,20 @@ rcv a
 jgz a -1
 set a 1
 jgz a -2`
-	iout := advent18A(input)
-	iexpected := 4
+	// iout := advent18A(input)
+	// iexpected := 4
+	// if !cmp.Equal(iout, iexpected) {
+	// 	t.Errorf("Didn't match %s", cmp.Diff(iout, iexpected))
+	// }
+	input = `snd 1
+snd 2
+snd p
+rcv a
+rcv b
+rcv c
+rcv d`
+	iout := advent18B(input)
+	iexpected := 3
 	if !cmp.Equal(iout, iexpected) {
 		t.Errorf("Didn't match %s", cmp.Diff(iout, iexpected))
 	}

@@ -22,13 +22,13 @@ type instructions struct {
 func getInstructions(input string) instructions {
 	var instructions instructions
 	instructions.states = make(map[rune]map[bool]instruction)
-	scanner := bufio.NewScanner(strings.NewReader(input))
 	var getState = regexp.MustCompile(`state ([A-Z]).`)
 	var getStateAlt = regexp.MustCompile(`state ([A-Z]):`)
 	var getNumber = regexp.MustCompile(`\d+`)
 	var currentState rune
 	var currentValue bool
 	var currentInstruction instruction
+	scanner := bufio.NewScanner(strings.NewReader(input))
 	for scanner.Scan() {
 		s := scanner.Text()
 		if strings.Contains(s, "Begin") {
