@@ -374,5 +374,40 @@ func TestDay24(t *testing.T) {
 	}
 }
 
+func TestDay25(t *testing.T) {
+	input := `Begin in state A.
+Perform a diagnostic checksum after 6 steps.
+
+In state A:
+	If the current value is 0:
+	- Write the value 1.
+	- Move one slot to the right.
+	- Continue with state B.
+	If the current value is 1:
+	- Write the value 0.
+	- Move one slot to the left.
+	- Continue with state B.
+
+In state B:
+	If the current value is 0:
+	- Write the value 1.
+	- Move one slot to the left.
+	- Continue with state A.
+	If the current value is 1:
+	- Write the value 1.
+	- Move one slot to the right.
+	- Continue with state A.`
+	out := advent25A(input)
+	expected := 3
+	if !cmp.Equal(out, expected) {
+		t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	}
+	// out = advent25B(input)
+	// expected = 19
+	// if !cmp.Equal(out, expected) {
+	// 	t.Errorf("Didn't match %s", cmp.Diff(out, expected))
+	// }
+}
+
 func TestAdvent(t *testing.T) {
 }
