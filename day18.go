@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"strconv"
 	"strings"
 )
@@ -59,10 +58,7 @@ func advent18A(test string) int {
 					i += numeric - 1
 				}
 			}
-		default:
-			panic(fmt.Sprintf("invalid command %s", stringParts[0]))
 		}
-		fmt.Printf("%d: %s -> %v\n", i, command, registers)
 		i++
 	}
 }
@@ -81,7 +77,6 @@ type result struct {
 
 func run(program *program, otherProgram *program) result {
 	if program.index >= len(program.commands) {
-		fmt.Print("OOB")
 		return result{false, false}
 	}
 	command := program.commands[program.index]
@@ -130,33 +125,25 @@ func run(program *program, otherProgram *program) result {
 			deadlocked = true
 		} else {
 			program.registers[parts[1]] = program.queue[0]
-			//fmt.Printf("Before %v", program.queue)
 			program.queue = program.queue[1:]
-			//fmt.Printf("After %v", program.queue)
 		}
 	case "jgz":
-		numeric1, err := strconv.Atoi(parts[1])
+		jgz, err := strconv.Atoi(parts[1])
+		proceed := false
 		if err != nil {
-			if program.registers[parts[1]] > 0 {
-				numeric, err := strconv.Atoi(parts[2])
-				if err != nil {
-					program.index += program.registers[parts[2]] - 1
-				} else {
-					program.index += numeric - 1
-				}
-			}
+			proceed = program.registers[parts[1]] > 0
 		} else {
-			if numeric1 > 0 {
-				numeric, err := strconv.Atoi(parts[2])
-				if err != nil {
-					program.index += program.registers[parts[2]] - 1
-				} else {
-					program.index += numeric - 1
-				}
+			proceed = jgz > 0
+		}
+		if proceed {
+			numeric, err := strconv.Atoi(parts[2])
+			if err != nil {
+				program.index += program.registers[parts[2]] - 1
+			} else {
+				program.index += numeric - 1
 			}
 		}
 	}
-	//fmt.Printf("%d: %s -> %v\n", program.index, command, program.registers)
 	if !deadlocked {
 		program.index++
 	}
@@ -176,14 +163,10 @@ func advent18B(test string) int {
 	for {
 		result0 := run(&program0, &program1)
 		result1 := run(&program1, &program0)
-		// fmt.Printf("p0:%v q:%d i:%d c: %s | %v\np1:%v q:%d i:%d c: %s | %v\n\n\n",
-		// 	result0, len(program0.queue), program0.index, program0.commands[program0.index], program0.registers,
-		// 	result1, len(program1.queue), program1.index, program1.commands[program1.index], program1.registers)
 		if result1.wrote {
 			total++
 		}
 		if result0.deadlocked && result1.deadlocked {
-			//fmt.Print("DEADLOCKED\n")
 			break
 		}
 	}
